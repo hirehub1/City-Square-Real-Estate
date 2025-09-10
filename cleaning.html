@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleaning Services - City Square</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand:#0d1b2a; 
+      --brand-2:#1b263b; 
+      --accent:#d4af37; 
+      --text:#213043; 
+      --muted:#6b7a90; 
+      --bg:#ffffff; 
+      --soft:#f4f6f9; 
+      --radius:16px;
+      --shadow:0 10px 25px rgba(13,27,42,.08);
+    }
+    body {
+      margin:0;
+      font-family: 'Roboto', sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    header {
+      background:var(--brand);
+      color:#fff;
+      padding:20px;
+      text-align:center;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      margin:0;
+      font-size:28px;
+    }
+    .hero {
+      background:var(--brand-2);
+      color:#fff;
+      text-align:center;
+      padding:60px 20px;
+    }
+    .hero h2 {
+      font-size:32px;
+      margin-bottom:10px;
+    }
+    .hero p {
+      font-size:18px;
+      color:#ddd;
+    }
+    .container {
+      max-width:1100px;
+      margin:40px auto;
+      padding:0 20px;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:24px;
+    }
+    .card {
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      transition:transform 0.3s ease, opacity 0.3s ease;
+      opacity:0;
+      transform:translateY(30px);
+    }
+    .card.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+    .card h3 {
+      margin-top:0;
+      font-family:'Montserrat', sans-serif;
+      font-size:20px;
+      color:var(--brand);
+    }
+    .btn {
+      display:inline-block;
+      margin-top:15px;
+      padding:12px 20px;
+      border-radius:var(--radius);
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      transition:background 0.3s;
+    }
+    .btn:hover {
+      background:#c19b2e;
+    }
+    footer {
+      text-align:center;
+      padding:20px;
+      background:var(--soft);
+      font-size:14px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>City Square Cleaning Services</h1>
+  </header>
+
+  <section class="hero">
+    <h2>Professional Cleaning in Accra</h2>
+    <p>Reliable, affordable, and professional cleaning for homes, offices, and construction sites.</p>
+    <a href="https://wa.me/233XXXXXXXXX" class="btn">Book on WhatsApp</a>
+  </section>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h3>House Cleaning</h3>
+        <p>Keep your home sparkling clean with our professional house cleaning team. Flexible schedules available.</p>
+      </div>
+      <div class="card">
+        <h3>Office Cleaning</h3>
+        <p>Ensure a spotless and healthy workplace environment with our office cleaning services.</p>
+      </div>
+      <div class="card">
+        <h3>Post-Construction</h3>
+        <p>We handle the dust and debris after construction projects, leaving your space ready to move in.</p>
+      </div>
+      <div class="card">
+        <h3>Deep Cleaning</h3>
+        <p>A full-service cleaning for carpets, windows, kitchens, and bathrooms.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; <span id="yr"></span> City Square Real Estate & Cleaning. All Rights Reserved.
+  </footer>
+
+  <script>
+    // year update
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // simple animation on scroll
+    const cards = document.querySelectorAll('.card');
+    const revealCards = () => {
+      const trigger = window.innerHeight * 0.9;
+      cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < trigger){
+          card.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealCards);
+    window.addEventListener('load', revealCards);
+  </script>
+</body>
+</html>
